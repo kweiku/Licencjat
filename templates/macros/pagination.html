@@ -12,11 +12,11 @@
                     {% if ctx.page == 1 %}disabled{% endif %}
             >
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                     xmlns="http://www.w3.org/2000/svg">
+                     xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
                     <path fill-rule="evenodd"
                           d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586
                       11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                          clip-rule="evenodd" transform="scale(1, -1)"></path>
+                          clip-rule="evenodd"></path>
                 </svg>
                 <span class="sr-only">Poprzenia strona</span>
             </button>
@@ -38,6 +38,7 @@
                 <span class="sr-only">Następna strona</span>
             </button>
         </div>
+
         <div class="grow">
             <p class="text-right mt-3 text-center pr-2">
                 Strona {{ ctx.page }} z {{ ctx.pages }}

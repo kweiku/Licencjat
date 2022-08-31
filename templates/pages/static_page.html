@@ -12,13 +12,12 @@
                  background-blend-mode: overlay;
                  background-repeat: no-repeat;
                  background-position: center;
-                 background-size: auto;
+                 background-size: cover;
                  ">
-{#        <img class="object-cover h-48 w-full" src={{ url_for('static', filename='img/bck_1.jpg') }}/>#}
     </div>
     <div class="container md:mx-auto p-8 sm:w-full">
         <div class="p-4">
-            <h5 class="md:text-4xl text-4xl font-allura"> {{ name }} </h5>
+            <h5 class="md:text-6xl text-4xl font-custom"> {{ name }} </h5>
         </div>
         <div class="container p-8">
             {% if content %}
@@ -33,11 +32,9 @@
                 <caption
                         class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                     Składniki
-                    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Browse a list of Flowbite
-                        products
-                        designed to help you work and play, stay organized, get answers, keep in touch, grow your
-                        business,
-                        and more.</p>
+                    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                    Lista przykładowych składników występujących
+                    </p>
                 </caption>
                 <thead></thead>
                 <tbody>

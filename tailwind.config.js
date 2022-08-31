@@ -16,8 +16,9 @@ module.exports = {
             }
         },
         fontFamily: {
-            'custom': ['Aboreto', 'sans-serif'],
-            'allura': ['Allura', 'sans-serif']
+            'custom': ['Poiret One', 'sans-serif'],
+            'allura': ['Allura', 'sans-serif'],
+            'aboreto': ['Aboreto', 'sans-serif']
         },
     },
     plugins: [

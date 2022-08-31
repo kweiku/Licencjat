@@ -8,14 +8,13 @@
          style="background-image: url({{ url_for('static', filename='img/bck_1.jpg') }}),
                  linear-gradient(rgba(255,255,255,0), rgb(255,255,255));
                  background-blend-mode: overlay;
-                 {#background-repeat: no-repeat;#}
-                 {#background-position: center;#}
+                 background-repeat: no-repeat;
+                 background-size: cover;
                  ">
-        {#        <img class="object-cover h-48 w-full" src={{ url_for('static', filename='img/bck_1.jpg') }}/>#}
     </div>
     <div class="container md:mx-auto p-8 sm:w-full">
         <div class="py-4">
-            <h3 class="capitalize font-allura text-6xl">{{ product.name }}</h3>
+            <h3 class="font-custom text-6xl">{{ product.name }}</h3>
         </div>
 
         <div class="md:flex-row sm:flex-col">

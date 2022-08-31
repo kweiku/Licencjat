@@ -8,11 +8,13 @@
          style="background-image: url({{ url_for('static', filename='img/'+ingredient.img_url if ingredient.img_url else 'img/bck_1.jpg') }}),
                  linear-gradient(rgba(255,255,255,0), rgb(255,255,255));
                  background-blend-mode: overlay;
+                 background-repeat: no-repeat;
+                 background-size: cover;
                  ">
     </div>
     <div class="container md:mx-auto p-8 sm:w-full">
         <div class="py-4">
-            <h3 class="capitalize font-allura text-6xl">{{ ingredient.name }}</h3>
+            <h3 class="font-custom text-6xl">{{ ingredient.name }}</h3>
             <div class="font-mono text-xl text-gray-400">
                 {{ ingredient.category.name }}
             </div>
