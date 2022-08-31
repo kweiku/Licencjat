@@ -1,0 +1,30 @@
+{% from 'macros/pagination.html' import nav_link %}
+{% extends "base.html" %}
+{% block title %}
+    Search results
+{% endblock %}
+{% block content %}
+    <div class="container mx-auto p-8">
+
+        <div class="container p-4">
+            {% include 'utils/search_form.html' %}
+        </div>
+        {% if results.items %}
+            <div class="pb-4">
+                <h1>Wyniki wyszukiwania</h1>
+            </div>
+        {% endif %}
+        <div class="flex flex-col space-y-2">
+            {% if results.items %}
+                {% for item in results.items %}
+                    {% with item=repack_tuple(item) %}
+                        {% include 'lists/search_item.html' %}
+                    {% endwith %}
+                {% endfor %}
+                {{ nav_link('root.search_page', results, query) }}
+            {% else %}
+                {% include 'utils/not_found.html' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

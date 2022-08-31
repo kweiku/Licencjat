@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block content %}
+    <div class="bg-scroll w-full h-48"
+         style="background-image: url({{
+                 url_for('static', filename='img/'+img_url if img_url else 'img/bck_1.jpg')
+                 }}),
+                 linear-gradient(rgba(255,255,255,0), rgb(255,255,255));
+                 background-blend-mode: overlay;
+                 background-repeat: no-repeat;
+                 background-position: center;
+                 background-size: auto;
+                 ">
+{#        <img class="object-cover h-48 w-full" src={{ url_for('static', filename='img/bck_1.jpg') }}/>#}
+    </div>
+    <div class="container md:mx-auto p-8 sm:w-full">
+        <div class="p-4">
+            <h5 class="md:text-4xl text-4xl font-allura"> {{ name }} </h5>
+        </div>
+        <div class="container p-8">
+            {% if content %}
+            {{ content|safe }}
+            {% else %}
+            {% include file_path %}
+            {% endif %}
+        </div>
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+        {% if ingredients %}
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <caption
+                        class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                    Składniki
+                    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Browse a list of Flowbite
+                        products
+                        designed to help you work and play, stay organized, get answers, keep in touch, grow your
+                        business,
+                        and more.</p>
+                </caption>
+                <thead></thead>
+                <tbody>
+                {% for ing in ingredients %}
+                    {% with item=ing %}
+                        {% include 'lists/list_item.html' %}
+                    {% endwith %}
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

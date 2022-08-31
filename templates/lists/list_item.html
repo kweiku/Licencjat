@@ -1,0 +1,21 @@
+<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-beige-100 cursor-pointer "
+onclick="javascript:location.href='{{ url_for('products.product_page', item_name=item.product_id)
+            if item.__class__.__name__ == 'Products' else
+            url_for('ingredients.ingredients_page', item_name=item.ingredient_id) }}'"
+>
+    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        {{ item.name }}
+    </th>
+    {% if item.__class__.__name__ == 'Ingredients' %}
+        <td class="py-4 px-6">
+            {{ item.category.name }}
+        </td>
+    {% endif %}
+    <td class="py-4 px-6">
+        <a class="font-medium text-beige-300 dark:text-blue-500 hover:underline"
+           href={{ url_for('products.product_page', item_name=item.product_id)
+            if item.__class__.__name__ == 'Products' else
+            url_for('ingredients.ingredients_page', item_name=item.ingredient_id) }}>Więcej</a>
+    </td>
+</tr>
+

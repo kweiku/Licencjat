@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+    Landing
+{% endblock %}
+{% block content %}
+    <div class="bg-gradient-to-t from-beige-100 h-screen">
+    <section
+            class="
+            dark:bg-gray-900 py-1 px-4 mx-auto max-w-screen-xl sm:py-16 md:px-12 text-gray-500 text-center">
+        <div class="py-1 px-4 text-6xl font-allura text-gray-900">
+            Włosy też mają potrzeby
+        </div>
+        <div class="py-1 px-4 text-2xl font-semibold text-gray-900">
+            Analiza składników kosmetyków
+        </div>
+
+        <div class="pt-4 pb-1 px-4 text-1xl font-semibold text-gray-900">
+            Sprawdź w jakich kosmetykach do włosów znajdują się Twoje ulubione składniki!
+        </div>
+        <div class="py-2 px-4">
+            Twoje włosy lubią keratynę? A może olej kokosowy powoduje u Ciebie puszenie?
+            Wyszukaj składnik i dowiedz się po jakie produkty sięgać, a których unikać.
+        </div>
+    </section>
+    {#    <section class=" bg-gray-50 dark:bg-gray-800 md:h-1/2">#}
+    <section class="bg-scroll w-full"
+             style="background-image: url({{ url_for('static', filename='img/strona_glowna.jpg') }});
+                     box-shadow:inset 0 0 0 2000px rgba(255,255,255,0.2);">
+        <div class="flex flex-col space-y-4 p-8">
+            <div class="block text-center p-4">
+                <h5 class="text-4xl font-semibold capitalize text-gray-900">Znajdź produkty</h5>
+            </div>
+            {#        py-8 px-4 mx-auto max-w-screen-xl lg:py-16#}
+            <div class="block place-self-center md:w-96 w-full">
+                {% include 'utils/search_form.html' %}
+            </div>
+        </div>
+        {#    <div class="absolute inset-0 w-full h-full bg-indigo-300 bg-opacity-75" />#}
+    </section>
+            <div class="py-8 px-4" />
+    </div>
+{% endblock %}

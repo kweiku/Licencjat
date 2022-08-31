@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="bg-scroll w-full h-48"
+         style="background-image: url({{ url_for('static', filename='img/bck_1.jpg') }}),
+                 linear-gradient(rgba(255,255,255,0), rgb(255,255,255));
+                 background-blend-mode: overlay;
+                 {#background-repeat: no-repeat;#}
+                 {#background-position: center;#}
+                 ">
+        {#        <img class="object-cover h-48 w-full" src={{ url_for('static', filename='img/bck_1.jpg') }}/>#}
+    </div>
+    <div class="container md:mx-auto p-8 sm:w-full">
+        <div class="py-4">
+            <h3 class="capitalize font-allura text-6xl">{{ product.name }}</h3>
+        </div>
+
+        <div class="md:flex-row sm:flex-col">
+            <img class="sm:w-full md:w-1/2 h-auto max-w-md h-auto md:float-right p-8"
+                 src="{{ url_for('static', filename='img/kosemtyki/'+product.img_url if product.img_url else 'img/bck_1.jpg') }}"
+                 alt="image description">
+
+            <div class="p-4">
+                <strong>Skład</strong> {{ product.description }}
+            </div>
+        </div>
+
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <caption
+                        class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                    Wybrane składniki
+                    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Lista składników
+                        znajdujących się w bazie serwisu</p>
+                </caption>
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6">
+                        Nazwa
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Kategoria
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ind in ingredients %}
+                    {% with item=ind.ingredient %}
+                        {% include 'lists/list_item.html' %}
+                    {% endwith %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
