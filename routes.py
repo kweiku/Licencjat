@@ -196,7 +196,7 @@ def static_reading_ingredients():
 def static_wlosing():
     return render_template('pages/static_page.html',
                            name='Włosing',
-                           img_url='włosing.jpg',
+                           img_url='wlosing.jpg',
                            file_path='pages_content/wlosing.html')
 
 
